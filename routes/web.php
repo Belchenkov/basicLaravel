@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home', ['title' => 'Home']);
-});
-Route::get('/about', function () {
-    return view('about', ['title' => 'About']);
-});
-Route::get('/contact', function () {
-    return view('contact', ['title' => 'Contact']);
-});
+Route::get('/', 'PagesController@getHome');
+
+Route::get('/about','PagesController@getAbout');
+
+Route::get('/contact','PagesController@getContact');
+
+Route::get('/messages', 'MessagesController@getMessages');
+
 Route::post('/contact/submit', 'MessagesController@submit');
